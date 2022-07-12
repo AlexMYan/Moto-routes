@@ -37,8 +37,6 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED
                         $arrSet=$item;
                     }
                 }
-
-
                 $file = new SplFileObject($pathFileRoadCoordinat, 'a');
                 $file->fputcsv($arrSet,";");
 

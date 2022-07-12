@@ -52,7 +52,7 @@ body a{
     background-color: #FFFFF6;
     border: 1px solid #CDB7B5;
     border-radius: 6px;
-    font-family: Arial;
+    font-family: system-ui;
 }
 .close {
     margin-top: -3px;
@@ -70,7 +70,7 @@ body a{
     background: #fff;
   /*  box-shadow: 0 1px 2px 1px rgb(0 0 0 / 15%), 0 2px 5px -3px rgb(0 0 0 / 15%);
     border-radius: 0 3px 3px 0;*/
-    font: 11px/20px Arial,sans-serif;
+    font: 11px/20px system-ui,sans-serif;
     text-align: left;
     border:1px solid rgb(0 0 0 / 15%);
     position: relative;
@@ -129,7 +129,7 @@ body a{
 
 }
 .formM div{
-    font: 11px/20px Arial,sans-serif;
+    font: 11px/20px system-ui,sans-serif;
     text-align: left;
 
 }
@@ -154,7 +154,7 @@ body a{
     text-align: center!important;
     white-space: nowrap;
     -webkit-tap-highlight-color: rgba(0,0,0,0);
-     font: 11px/20px Arial,sans-serif;
+     font: 11px/20px system-ui,sans-serif;
 
 }
 
@@ -175,6 +175,7 @@ body a{
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
     box-shadow: inset 0 0 0 1px rgb(0 0 0 / 15%), 0 5px 15px -7px rgb(0 0 0 / 50%);
+    overflow: auto;
 }
 
 .hidden-menu-ticker {
@@ -262,8 +263,10 @@ h1 {
     background-color: #666;
     padding: 3px;
     position: absolute;
-    top: 5px;
-    right: -26px;
+   /* top: 5px;
+    right: -26px;*/
+    top:-10px;
+    right: -1px;
     cursor: pointer;
     transition: left .23s;
     z-index: 3;
@@ -303,3 +306,10 @@ h1 {
 }
 
 
+.hidden-menu::-webkit-scrollbar {
+    width: 7px;
+    background-color: #C9C9C9;
+}
+.hidden-menu::-webkit-scrollbar-thumb {
+    background-color: #666;
+}
