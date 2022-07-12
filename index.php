@@ -1,3 +1,14 @@
+ <?
+    header('Content-Encoding: UTF-8');
+    header('Content-Type: text/html; charset=UTF-8');
+
+    require(__DIR__.'/classes/csv.php');
+    require(__DIR__.'/classes/functions.php');
+    require(__DIR__.'/classes/Extra/Helper.php');
+
+    $obExtra = new \Extra\Helper();
+?>
+
 <html>
 <head>
     <title>Карта моих поездок с оценкой покрытия</title>
@@ -10,7 +21,7 @@
 
     <link href="/css/lightbox.css" rel="stylesheet" type="text/css" />
 
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=3fbf19f4-1be9-4716-a272-fde43aca6efd"
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=<?php  echo $obExtra::getYandexKey()?>"
             type="text/javascript"></script>
     <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
 
@@ -21,16 +32,7 @@
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/css.css">
 
-    <?
-    header('Content-Encoding: UTF-8');
-    header('Content-Type: text/html; charset=UTF-8');
-
-    require(__DIR__.'/classes/csv.php');
-    require(__DIR__.'/classes/functions.php');
-    require(__DIR__.'/classes/Extra/Helper.php');
-
-
-
+   <?
 
     $year=date("Y");
     if(isset($_REQUEST["years"]) && $_REQUEST["years"]>0 ){
@@ -107,7 +109,6 @@
 
 </head>
 <body>
-
 <div class="wrap" id="my_conteiner" >
 
     <input type="checkbox" id="hmt" class="hidden-menu-ticker">
