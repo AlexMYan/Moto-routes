@@ -33,6 +33,7 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED
                         $item[1]=$_POST["NAME"];
                         $item[7]=date("Y");
                         $item[8]=date("Y-m-d H:i:s");
+
                         $arrSet=$item;
                     }
                 }
@@ -45,7 +46,6 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED
 
                 echo  json_encode($res);
 
-
             } catch (Exception $e) { //Если csv файл не существует, выводим сообщение
                 echo "Ошибка: " . $e->getMessage();
             }
@@ -53,9 +53,8 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED
 
         //добавления нового маршрута
         if(!empty($_POST["NAME"]) && !empty($_POST["START_LONG"])  && !empty($_POST["START_LAT"]) && !empty($_POST["END_LAT"]) && !empty($_POST["END_LONG"]) && !empty($_POST["STARS"]) && $_POST["action"]=="add"){
+
             try {
-
-
                 $csv2 = new CSV($pathFileRoadCoordinat); //Открываем наш csv
 
                 $get_csv2=$csv2->getCSV();
