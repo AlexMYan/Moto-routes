@@ -33,8 +33,6 @@
 
    <?
 
-  // header('Content-Encoding: UTF-8');
-  // header('Content-Type: text/html; charset=UTF-8');
 
    require(__DIR__.'/classes/csv.php');
    require(__DIR__.'/classes/functions.php');
@@ -46,7 +44,7 @@
     }
 
     try {
-        $csv = new CSV("files/2.csv"); //Открываем наш csv
+        $csv = new CSV($obYandex::getFile1()); //Открываем наш csv
 
         /**
          * Чтение из CSV  (и вывод на экран в красивом виде)
@@ -74,7 +72,7 @@
         }
 
 
-        $pictureCsv = new CSV("files/picturesmy.csv"); //Открываем наш csv
+        $pictureCsv = new CSV($obYandex::getFile3()); //Открываем наш csv
 
         /**
          * Чтение из CSV  (и вывод на экран в красивом виде)
