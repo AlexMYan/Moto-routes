@@ -8,6 +8,7 @@
     require(__DIR__.'/classes/Extra/Yandex.php');
 
     $obYandex = new \Extra\Yandex();
+    $obYandex = new \Extra\Helper();
 
 
 ?>
@@ -90,7 +91,7 @@
 
     //сортируем массив по убывания по ключу ID
     uasort($arPoints, 'cmp_function_desc');
-    $arPoints= array_unique_key($arPoints,"ID");
+    $arPoints= $obYandex::array_unique_key($arPoints,"ID");
 
     ?>
 

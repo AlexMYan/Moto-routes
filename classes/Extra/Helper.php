@@ -13,7 +13,7 @@ class Helper
      * @param $key
      * @return array
      */
-    public function array_unique_key_one($array, $key) {
+    public function arrayUniqueKey($array, $key) {
         $tmp = $key_array = array();
         $i = 0;
 
@@ -35,7 +35,7 @@ class Helper
      * @param $key
      * @return array
      */
-    public function array_unique_key($array, $key, $keyDate) {
+    public function arrayUniqueKeyAndDate($array, $key, $keyDate) {
         $tmp = $key_array = array();
         $i = 0;
 
