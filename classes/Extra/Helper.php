@@ -36,6 +36,7 @@ class Helper
      * @return array
      */
     public function arrayUniqueKeyAndDate($array, $key, $keyDate) {
+
         $tmp = $key_array = array();
         $i = 0;
 
@@ -48,8 +49,8 @@ class Helper
                 //тут проверяем если такой id есть в массиве, то сравниваем дату, какая дата новее тот элемент идет в массив
                 foreach($tmp as $k => $item){
                     if($item["ID"]==$val[$key]){
-                        $t1=new DateTime($item[$keyDate]);
-                        $t2=new DateTime($val[$keyDate]);
+                        $t1=new \DateTime($item[$keyDate]);
+                        $t2=new \DateTime($val[$keyDate]);
                         if($t2>$t1){
                             $tmp[$k] = $val;
                         }

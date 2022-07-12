@@ -1,9 +1,4 @@
  <?
-    header('Content-Encoding: UTF-8');
-    header('Content-Type: text/html; charset=UTF-8');
-
-    require(__DIR__.'/classes/csv.php');
-    require(__DIR__.'/classes/functions.php');
     require(__DIR__.'/classes/Extra/Helper.php');
     require(__DIR__.'/classes/Extra/Yandex.php');
 
@@ -37,6 +32,13 @@
     <link rel="stylesheet" href="/css/css.css">
 
    <?
+
+  // header('Content-Encoding: UTF-8');
+  // header('Content-Type: text/html; charset=UTF-8');
+
+   require(__DIR__.'/classes/csv.php');
+   require(__DIR__.'/classes/functions.php');
+
 
     $year=date("Y");
     if(isset($_REQUEST["years"]) && $_REQUEST["years"]>0 ){
@@ -91,11 +93,9 @@
 
     //сортируем массив по убывания по ключу ID
     uasort($arPoints, 'cmp_function_desc');
-    $arPoints= array_unique_key($arPoints,"ID");
 
-   if($_REQUEST["dev"]=="Y"){
-       $arPoints= $obHelper::arrayUniqueKeyAndDate($arPoints,"ID","DATE_CHANGE");
-   }
+   $arPoints= $obHelper::arrayUniqueKeyAndDate($arPoints,"ID", "DATE_CHANGE");
+
 
     ?>
 
