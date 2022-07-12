@@ -8,7 +8,7 @@
     require(__DIR__.'/classes/Extra/Yandex.php');
 
     $obYandex = new \Extra\Yandex();
-    $obYandex = new \Extra\Helper();
+    $obHelper = new \Extra\Helper();
 
 
 ?>
@@ -91,24 +91,16 @@
 
     //сортируем массив по убывания по ключу ID
     uasort($arPoints, 'cmp_function_desc');
-    $arPoints= $obYandex::array_unique_key($arPoints,"ID");
+    $arPoints= array_unique_key($arPoints,"ID");
+
+   if($_REQUEST["dev"]=="Y"){
+       $arPoints= $obHelper::arrayUniqueKeyAndDate($arPoints,"ID","DATE_CHANGE");
+   }
 
     ?>
 
     <!-- Yandex.Metrika counter -->
-    <script type="text/javascript" >
-        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-            m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-        (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
-
-        ym(89523182, "init", {
-            clickmap:true,
-            trackLinks:true,
-            accurateTrackBounce:true,
-            webvisor:true
-        });
-    </script>
-    <noscript><div><img src="https://mc.yandex.ru/watch/89523182" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+   <?  require(__DIR__.'/include/yandex_metrika.php'); ?>
     <!-- /Yandex.Metrika counter -->
 
 </head>
