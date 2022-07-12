@@ -7,13 +7,16 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED
 
     //подключаем класс для работы с csv
     require(__DIR__.'/classes/csv.php');
+    require(__DIR__.'/classes/Extra/Yandex.php');
+
+    $obYandex = new \Extra\Yandex();
 
     //файл в которм храняться координаты маршрутов
-    $pathFileRoadCoordinat=__DIR__."/files/2.csv";
+    $pathFileRoadCoordinat=__DIR__."/".$obYandex::getFile1();
     //копия делается каждый раз перед записью в 2
-    $pathFileRoadCoordinatCopy=__DIR__."/files/3.csv";
+    $pathFileRoadCoordinatCopy=__DIR__.'/'.$obYandex::getFile2();
 
-    $checkWords="555";
+    $checkWords=$obYandex::getControlWord();
 
     if($_POST["controlW"]==$checkWords){
         //изменение маршрута
