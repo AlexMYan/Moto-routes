@@ -5,8 +5,11 @@
     require(__DIR__.'/classes/csv.php');
     require(__DIR__.'/classes/functions.php');
     require(__DIR__.'/classes/Extra/Helper.php');
+    require(__DIR__.'/classes/Extra/Yandex.php');
 
-    $obExtra = new \Extra\Helper();
+    $obYandex = new \Extra\Yandex();
+
+
 ?>
 
 <html>
@@ -21,7 +24,7 @@
 
     <link href="/css/lightbox.css" rel="stylesheet" type="text/css" />
 
-    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=<?php  echo $obExtra::getYandexKey()?>"
+    <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=<?=$obYandex::getYandexKey()?>"
             type="text/javascript"></script>
     <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
 
