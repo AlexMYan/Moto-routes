@@ -4,6 +4,8 @@ require(__DIR__ . '/classes/Extra/Yandex.php');
 
 $obYandex = new \Extra\Yandex();
 $obHelper = new \Extra\Helper();
+
+$siteUrl =" https://".$_SERVER["HTTP_HOST"]."/";
 ?>
 
 <html>
@@ -12,20 +14,16 @@ $obHelper = new \Extra\Helper();
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no"/>
 
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/css.css">
+    <link  href="/css/styles.css" rel="stylesheet">
 
     <link href="/css/lightbox.css" rel="stylesheet" type="text/css"/>
 
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=<?= $obYandex::getYandexKey() ?>"
             type="text/javascript"></script>
     <script src="https://yandex.st/jquery/2.2.3/jquery.min.js" type="text/javascript"></script>
-
-    <script type="text/javascript" src="/js/lightbox.js"></script>
-
+    <script src="/js/lightbox.js" type="text/javascript"></script>
     <script src="/script.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="/css/styles.css">
-    <link rel="stylesheet" href="/css/css.css">
+
 
     <?
     require(__DIR__ . '/classes/csv.php');
@@ -188,7 +186,7 @@ $obHelper = new \Extra\Helper();
             map: myMap,
             routes: <?=json_encode($arPoints)?>,
             pictures: <?=json_encode($get_picture_csv)?>,
-            siteUrl: 'https://moto-maps.tmweb.ru/',
+            siteUrl: '<?=$siteUrl?>',
         });
     }
 
