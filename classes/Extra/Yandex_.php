@@ -1,4 +1,8 @@
 <?php
+/**
+ * Как пример
+ *
+ */
 namespace Extra;
 
 class Yandex
