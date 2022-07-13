@@ -39,11 +39,17 @@
                     this.setPicturesToMap(this.pictures, this.map);
                 }
 
-
+                this.hiddenMenu = this.container.querySelector('.hidden-menu');
 
                 this.container.onclick = (e) => {
                     const target = e.target; // элемент который вызвал событие
                     const obClass = target.getAttribute('class');
+
+                    console.log("onclick");
+                    this.calculateBlock(this.hiddenMenu);
+
+
+
 
                     //  console.log(obClass);
                     //    console.log(target);
@@ -97,10 +103,36 @@
                 // Слушаем клик на карте.
                 this.map.events.add('click', function (e) {
                     window.JCMyNewPage.prototype.eventClickOnMap(e);
+
+                   let hiddenMenu = document.getElementById("hidden-menu");
+                    window.JCMyNewPage.prototype.calculateBlock(hiddenMenu);
                 });
+
             }
         },
 
+        /**
+         * Данная функция проверяет высоту меню (блоков li)
+         * и если высота меню больше высоты окна добавляет ширину блока меню
+         * на ширину полоски скрола
+         *
+         * @param e
+         */
+        calculateBlock:function (e){
+            let li = e.querySelectorAll('.parentWrap');
+
+            let h=20;
+            if(li.length>0)
+                for(let i=0; i<li.length; i++)
+                    h+=li[i].clientHeight+20;
+
+          // console.log(h+">"+document.body.clientHeight);
+
+            if(h> document.body.clientHeight)
+                e.style.width="307px";
+            else
+                e.style.width="300px";
+        },
         /**
          * Добавляем на карту метки
          *
@@ -232,6 +264,11 @@
                         container.classList.add("hidden");
                     }
                 }
+
+                console.log("closeBlock");
+                let hiddenMenu = document.getElementById("hidden-menu");
+                window.JCMyNewPage.prototype.calculateBlock(hiddenMenu);
+
             }
         },
         /**

@@ -15,7 +15,6 @@ $obHelper = new \Extra\Helper();
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/css.css">
 
-
     <link href="/css/lightbox.css" rel="stylesheet" type="text/css"/>
 
     <script src="https://api-maps.yandex.ru/2.1/?lang=ru_RU&amp;apikey=<?= $obYandex::getYandexKey() ?>"
@@ -24,17 +23,13 @@ $obHelper = new \Extra\Helper();
 
     <script type="text/javascript" src="/js/lightbox.js"></script>
 
-
     <script src="/script.js" type="text/javascript"></script>
     <link rel="stylesheet" href="/css/styles.css">
     <link rel="stylesheet" href="/css/css.css">
 
     <?
-
-
     require(__DIR__ . '/classes/csv.php');
     require(__DIR__ . '/classes/functions.php');
-
 
     $year = date("Y");
     if (isset($_REQUEST["years"]) && $_REQUEST["years"] > 0) {
@@ -82,6 +77,8 @@ $obHelper = new \Extra\Helper();
 
     } catch (Exception $e) { //Если csv файл не существует, выводим сообщение
         echo "Ошибка: " . $e->getMessage();
+
+        die();
     }
 
     //сортируем массив по убывания по ключу ID
@@ -102,14 +99,14 @@ $obHelper = new \Extra\Helper();
         <span class="second"></span>
         <span class="third"></span>
     </label>
-    <ul class="hidden-menu">
+    <ul id="hidden-menu" class="hidden-menu">
         <!--  <li><div id="showPlacemarker"  class='btn placemarker'>Показать метки</div>
   -->
-        <li>yanovicham@gmail.com</li>
-        <li>
+        <li class="parentWrap">yanovicham@gmail.com</li>
+        <li class="parentWrap">
             <div id="openAddForm" for="myformAdd" class='btn open'>Новый маршрут</div>
         </li>
-        <li>
+        <li class="parentWrap">
             <div id="myformAdd" class="formM hidden blockli">
                 <label class='btn-menu-close' for='myformAdd' onclick='window.JCMyNewPage.prototype.closeBlock(this)'>
                     <span class='first'></span>
@@ -132,97 +129,41 @@ $obHelper = new \Extra\Helper();
                 <div class='btn' onclick='window.JCMyNewPage.prototype.addRoute();'>Добавить новый маршрут</div>
             </div>
         </li>
-        <li>
+        <li class="parentWrap">
             <div id="myform" class="formM hidden blockli"></div>
-        </li>
+        </li class="parentWrap">
 
-        <li>
+        <li class="parentWrap">
             <div id="blockCoordinats" class="formM hidden blockli">
             </div>
         </li>
-        <li>
+        <li class="parentWrap">
             <div id="openAbout" for="about" class='btn'>О проекте</div>
         </li>
-        <li>
+        <li class="parentWrap">
             <div id="about" class="hidden blockli">
                 <label class='btn-menu-close' for='about' onclick='window.JCMyNewPage.prototype.closeBlock(this)'>
                     <span class='first'></span>
                     <span class='third'></span>
                 </label>
                 <div>
-                    <p>Данный проект был создан после поездки в г.Борисов по трассе M1 (Минск - Борисов) в 2022 году.
-                        Это попытка в масштабе одного человека, создать ресурс, который позволит избегать плохих дорог.
-                        Преимущественно это касается конечно мотоциклов, но формально информацию можно учесть и для
-                        авто</p>
-                    <p>
-                        Градация следующая, чем зеленее маршрут, тем легче по нему ехать, тем меньше слежка за дорогой
-                        (ямы и прочее) занимает времени.
-                    </p>
-                    <p>
-                        Это вовсе не значит, что дороги отмечены красным, прям совсем плохи и проехать по ним нельзя.
-                        Это лишь значит, что нужно быть предельно внимательным к дорожному покрытию, а лучше совсем
-                        избегать данный маршрут.
-                    </p>
+                    <? require(__DIR__ . '/include/about.php'); ?>
                 </div>
             </div>
         </li>
-        <li>
+        <li class="parentWrap">
             <div id="openHistory" for='history' class='btn'>История</div>
         </li>
-        <li>
+        <li class="parentWrap">
             <div id="history" class="hidden blockli">
                 <label class='btn-menu-close' for='history' onclick='window.JCMyNewPage.prototype.closeBlock(this)'>
                     <span class='first'></span>
                     <span class='third'></span>
                 </label>
-                <div>
-
-                    <p>2022.07.11
-                    <ul>
-                        <li> - Внедрена галерея lightbox. При клике на метку можно в увеличенном варианте посмотреть
-                            фотки
-                        </li>
-                        <li> - Добавлен показ кол-ва фотографий на метке</li>
-                    </ul>
-                    </p>
-                    <p>2022.06.30
-                    <ul>
-                        <li> - Добавлена возможность просматривать координаты по клику на карте, с возможностью
-                            копировать данные в буфер. Нужно для создания маршрута.
-                        </li>
-                    </ul>
-                    </p>
-                    <p>2022.06.22
-                    <ul>
-                        <li> - Добавлена возможность удалять маршрут (пока только администратору)</li>
-                    </ul>
-                    </p>
-                    <p>2022.06.20
-                    <ul>
-                        <li> - Добавлена возможность добавлять новый маршрут (пока только администратору)</li>
-                    </ul>
-                    </p>
-                    <p>2022.06.17
-                    <ul>
-                        <li> - Добавлена возможность изменять название маршрута (пока только администратору)</li>
-                    </ul>
-                    </p>
-                    <p>2022.06.15
-                    <ul>
-                        <li> - Добавлена возможность изменять рейтинг маршрута (пока только администратору)</li>
-                    </ul>
-                    </p>
-                    <p>2022.06.14
-                    <ul>
-                        <li>- Создание проекта</li>
-                    </ul>
-                    </p>
-
-                </div>
+                <? require(__DIR__ . '/include/dev_history.php'); ?>
             </div>
         </li>
-        <li>Версия 1.0.1</li>
-
+        <li class="parentWrap">Версия 1.0.1</li>
     </ul>
 
     <header>
@@ -254,6 +195,7 @@ $obHelper = new \Extra\Helper();
     ymaps.ready(init);
 
 </script>
+
 
 </body>
 </html>
