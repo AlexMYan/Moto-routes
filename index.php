@@ -35,7 +35,7 @@ $siteUrl =" https://".$_SERVER["HTTP_HOST"]."/";
     }
 
     try {
-        $csv = new CSV($obYandex::getFile1()); //Открываем наш csv
+        $csv = new CSV($obYandex::getfileMain()); //Открываем наш csv
 
         /**
          * Чтение из CSV  (и вывод на экран в красивом виде)
@@ -62,7 +62,7 @@ $siteUrl =" https://".$_SERVER["HTTP_HOST"]."/";
             }
         }
 
-        $pictureCsv = new CSV($obYandex::getFile3()); //Открываем наш csv
+        $pictureCsv = new CSV($obYandex::getfileImages()); //Открываем наш csv
 
         /**
          * Чтение из CSV  (и вывод на экран в красивом виде)

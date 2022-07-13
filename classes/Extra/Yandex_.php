@@ -9,11 +9,11 @@ class Yandex
 {
     private const yandexKey =  "api_key_yandex";
 
-    private const file1 = "file1";
+    private const fileMain = "fileMain";
 
-    private const file2 = "file2";
+    private const fileCopy = "fileCopy";
 
-    private const file3 = "file13";
+    private const fileImages = "fileMain3";
 
     private const controlWord = "2343423048-";
 
@@ -31,8 +31,8 @@ class Yandex
      *
      * @return string
      */
-    public function getFile1(){
-        return self::file1;
+    public function getfileMain(){
+        return self::fileMain;
     }
 
     /**
@@ -40,8 +40,8 @@ class Yandex
      *
      * @return string
      */
-    public function getFile2(){
-        return self::file2;
+    public function getfileCopy(){
+        return self::fileCopy;
     }
 
     /**
@@ -49,8 +49,8 @@ class Yandex
      *
      * @return string
      */
-    public function getFile3(){
-        return self::file3;
+    public function getfileImages(){
+        return self::fileImages;
     }
 
     /**

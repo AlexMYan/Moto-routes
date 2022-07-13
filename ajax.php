@@ -12,9 +12,9 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED
     $obYandex = new \Extra\Yandex();
 
     //файл в которм храняться координаты маршрутов
-    $pathFileRoadCoordinat=__DIR__."/".$obYandex::getFile1();
+    $pathFileRoadCoordinat=__DIR__."/".$obYandex::getfileMain();
     //копия делается каждый раз перед записью в 2
-    $pathFileRoadCoordinatCopy=__DIR__.'/'.$obYandex::getFile2();
+    $pathFileRoadCoordinatCopy=__DIR__.'/'.$obYandex::getfileCopy();
 
     $checkWords=$obYandex::getControlWord();
 
