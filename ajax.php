@@ -45,7 +45,9 @@ if(isset($_SERVER['HTTP_X_REQUESTED_WITH']) && !empty($_SERVER['HTTP_X_REQUESTED
                 echo  json_encode($res);
 
             } catch (Exception $e) { //Если csv файл не существует, выводим сообщение
-                echo "Ошибка: " . $e->getMessage();
+                $res["error"]="Ошибка: " . $e->getMessage();
+
+                echo  json_encode($res);
             }
         }
 
